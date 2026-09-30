@@ -172,7 +172,7 @@
     </style>
 </head>
 
-<body class="bg-wedding-cream text-wedding-dark font-sans antialiased selection:bg-wedding-gold selection:text-white pb-20 md:pb-0">
+<body class="overflow-hidden bg-wedding-cream text-wedding-dark font-sans antialiased selection:bg-wedding-gold selection:text-white pb-20 md:pb-0">
 
     <!-- Welcome Modal Cover -->
     <div id="welcomeCover" class="fixed inset-0 z-50 flex items-center justify-center bg-wedding-dark bg-cover bg-center text-white transition-opacity duration-700" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg');">    
@@ -407,9 +407,12 @@
             // Fade out cover screen
             const cover = document.getElementById('welcomeCover');
             cover.classList.add('opacity-0');
+            // TAMBAH BARIS INI SUPAYA BOLEH SKROL SELEPAS BUTANG DITEKAN:
+            document.body.classList.remove('overflow-hidden');
             setTimeout(() => {
                 cover.style.display = 'none';
             }, 700);
+
 
             // Play background music
             playAudio();
