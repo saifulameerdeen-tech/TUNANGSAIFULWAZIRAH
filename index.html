@@ -98,6 +98,77 @@
             background: #C5A059;
             border-radius: 3px;
         }
+
+        /* --- STARRY NIGHT / LIGHT PARTICLES ANIMATION --- */
+        .bg-stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-stars li {
+            position: absolute;
+            list-style: none;
+            display: block;
+            width: 4px;
+            height: 4px;
+            background: #FFF;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #E5C98B, 0 0 20px #C5A059, 0 0 30px #C5A059;
+            animation: twinkle 4s infinite ease-in-out;
+        }
+
+        /* Bentuk Bintang 4-Sisi */
+        .bg-stars li.star-sparkle {
+            width: 0px;
+            height: 0px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+        }
+        .bg-stars li.star-sparkle::before,
+        .bg-stars li.star-sparkle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #E5C98B;
+            box-shadow: 0 0 8px #C5A059;
+        }
+        .bg-stars li.star-sparkle::before { width: 12px; height: 2px; border-radius: 2px; }
+        .bg-stars li.star-sparkle::after { width: 2px; height: 12px; border-radius: 2px; }
+
+        /* Posisi & Masa Kelipan */
+        .bg-stars li:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .bg-stars li:nth-child(2) { top: 25%; left: 80%; animation-delay: 1.2s; transform: scale(1.4); }
+        .bg-stars li:nth-child(3) { top: 40%; left: 20%; animation-delay: 0.5s; }
+        .bg-stars li:nth-child(4) { top: 55%; left: 70%; animation-delay: 2.1s; transform: scale(0.8); }
+        .bg-stars li:nth-child(5) { top: 70%; left: 30%; animation-delay: 1.7s; }
+        .bg-stars li:nth-child(6) { top: 85%; left: 85%; animation-delay: 0.3s; transform: scale(1.2); }
+        .bg-stars li:nth-child(7) { top: 15%; left: 60%; animation-delay: 2.5s; }
+        .bg-stars li:nth-child(8) { top: 35%; left: 45%; animation-delay: 1.0s; transform: scale(1.5); }
+        .bg-stars li:nth-child(9) { top: 65%; left: 10%; animation-delay: 1.9s; }
+        .bg-stars li:nth-child(10) { top: 80%; left: 50%; animation-delay: 0.8s; }
+        .bg-stars li:nth-child(11) { top: 5%; left: 85%; animation-delay: 1.4s; }
+        .bg-stars li:nth-child(12) { top: 92%; left: 20%; animation-delay: 2.8s; }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.15;
+                transform: scale(0.7);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.4);
+                box-shadow: 0 0 15px #FFF, 0 0 25px #E5C98B, 0 0 35px #C5A059;
+            }
+        }
     </style>
 </head>
 
@@ -105,20 +176,25 @@
 
     <!-- Welcome Modal Cover -->
     <div id="welcomeCover" class="fixed inset-0 z-50 flex items-center justify-center bg-wedding-dark bg-cover bg-center text-white transition-opacity duration-700" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg');">    
-    <div class="text-center p-6 max-w-lg mx-auto flex flex-col items-center">
+        <!-- Bintang Cahaya di Cover -->
+        <ul class="bg-stars">
+            <li></li><li class="star-sparkle"></li><li></li><li></li><li class="star-sparkle"></li><li></li><li></li><li></li><li class="star-sparkle"></li><li></li><li></li><li></li>
+        </ul>
+
+        <div class="text-center p-6 max-w-lg mx-auto flex flex-col items-center relative z-10">
             <p class="text-wedding-gold-light font-serif tracking-[0.3em] uppercase text-xs md:text-sm mb-3">MAJLIS PERTUNANGAN</p>
 
-<div class="relative flex flex-col items-center mt-12 mb-8 text-gray-400">
-  <span class="text-6xl font-bold tracking-widest">SAIFUL</span>
-  <span class="font-['Alex_Brush'] text-6xl text-wedding-gold-light -my-4 z-10">&amp;</span>
-  <span class="text-6xl font-bold tracking-widest">WAZIRAH</span>
-</div>
+            <div class="relative flex flex-col items-center my-6 text-gray-200">
+                <span class="text-5xl font-serif font-bold tracking-widest text-wedding-gold-light">SAIFUL</span>
+                <span class="font-['Alex_Brush'] text-5xl text-wedding-gold-light -my-3 z-10">&amp;</span>
+                <span class="text-5xl font-serif font-bold tracking-widest text-wedding-gold-light">WAZIRAH</span>
+            </div>
 
-<p class="font-serif text-sm tracking-widest text-gray-200 mt-1 mb-8">AHAD, 08 NOVEMBER 2026</p>
-<p class="font-serif text-sm tracking-widest text-gray-200 mt-1 mb-8">12.00 P.M - 3.30 P.M</p>
-<p class="font-serif text-3xl text-wedding-gold-light">KOMPLEKS MASYARAKAT PENYAYANG</p>
+            <p class="font-serif text-sm tracking-widest text-gray-200 mb-1">AHAD, 08 NOVEMBER 2026</p>
+            <p class="font-serif text-xs tracking-widest text-gray-300 mb-4">12.00 P.M - 3.30 P.M</p>
+            <p class="font-serif text-lg text-wedding-gold-light mb-4">KOMPLEKS MASYARAKAT PENYAYANG</p>
             
-            <div class="w-16 h-[1px] bg-wedding-gold my-4"></div>
+            <div class="w-16 h-[1px] bg-wedding-gold my-2"></div>
             
             <p class="text-xs font-light text-gray-300 max-w-xs mb-8 italic">
                 "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri..."
@@ -130,7 +206,6 @@
                     <i class="fa-solid fa-envelope-open text-xs"></i> Buka Kad Jemputan
                 </span>
             </button>
-            <p class="text-[10px] text-gray-400 mt-4"><i class="fa-solid fa-volume-high mr-1"></i> --</p>
         </div>
     </div>
 
@@ -155,28 +230,30 @@
 
     <!-- Background Audio Element -->
     <audio id="bgMusic" loop preload="auto">
-        <!-- Royalty-free wedding piano royalty free audio source -->
         <source src="bg-music.mp3/nasheed song.mp3" type="audio/mpeg">
     </audio>
-
-    
 
     <!-- MAIN APP WRAPPER -->
     <div class="max-w-xl mx-auto min-h-screen bg-white shadow-2xl relative border-x border-wedding-gold/20 overflow-hidden">
 
         <!-- Hero Header -->
-        <header class="relative h-[85vh] flex items-center justify-center text-center p-6 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(44, 42, 41, 0.4), rgba(44, 42, 41, 0.7)), url('https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg');">
-            <div class="z-10 text-white">
+        <header class="relative h-[85vh] flex items-center justify-center text-center p-6 bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(to bottom, rgba(44, 42, 41, 0.4), rgba(44, 42, 41, 0.7)), url('https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg');">
+            <!-- Bintang Cahaya di Hero Header -->
+            <ul class="bg-stars">
+                <li></li><li class="star-sparkle"></li><li></li><li></li><li class="star-sparkle"></li><li></li><li></li><li></li><li class="star-sparkle"></li><li></li><li></li><li></li>
+            </ul>
+
+            <div class="z-10 text-white relative">
                 <div class="inline-block p-1 border-t border-b border-wedding-gold/60 mb-4">
                     <p class="text-xs font-serif tracking-[0.4em] uppercase text-wedding-gold-light">MAJLIS PERTUNANGAN</p>
                 </div>
-                <h1 class="font-serif text-6xl md:text-5xl text-wedding-gold-light mb-2 drop-shadow-md">SAIFUL</h1>
-                <h1 class="font-serif text-6xl md:text-5xl text-wedding-gold-light mb-2 drop-shadow-md">&amp;</h1>
-                <h1 class="font-serif text-6xl md:text-5xl text-wedding-gold-light mb-2 drop-shadow-md">WAZIRAH</h1>
-                <p class="text-sm font-serif tracking-widest text-gray-200 mt-2">AHAD, 08 NOVEMBER 2026</p>
-                <p class="text-sm font-serif tracking-widest text-gray-200 mt-2">12.00 P.M - 3.30 P.M</p>
-                <p class="text-sm font-serif tracking-widest text-wedding-gold-light text-gray-200 mt-2">BERTEMPAT DI</p>
-                <span class="inline-block px-3 py-1 bg-wedding-dark/60 rounded-full text-xs text-wedding-gold border border-wedding-gold/30 mt-4 tracking-wider">KOMPLEKS MASYARAKAT PENYAYANG</span>
+                <h1 class="font-serif text-5xl md:text-6xl text-wedding-gold-light mb-1 drop-shadow-md">SAIFUL</h1>
+                <h1 class="font-serif text-4xl md:text-5xl text-wedding-gold-light mb-1 drop-shadow-md">&amp;</h1>
+                <h1 class="font-serif text-5xl md:text-6xl text-wedding-gold-light mb-2 drop-shadow-md">WAZIRAH</h1>
+                <p class="text-sm font-serif tracking-widest text-gray-200 mt-3">AHAD, 08 NOVEMBER 2026</p>
+                <p class="text-sm font-serif tracking-widest text-gray-200 mt-1">12.00 P.M - 3.30 P.M</p>
+                <p class="text-xs font-serif tracking-widest text-wedding-gold-light text-gray-200 mt-4 uppercase">BERTEMPAT DI</p>
+                <span class="inline-block px-4 py-1.5 bg-wedding-dark/60 rounded-full text-xs text-wedding-gold border border-wedding-gold/30 mt-2 tracking-wider font-semibold">KOMPLEKS MASYARAKAT PENYAYANG</span>
                 
                 <div class="mt-12 animate-bounce">
                     <a href="#jemputan" class="text-wedding-gold-light text-xl opacity-80 hover:opacity-100">
@@ -186,87 +263,94 @@
             </div>
         </header>
 
-        <!-- Invitation Text Section -->
-        <section id="jemputan" class="p-8 text-center bg-wedding-cream relative">
-            <div class="max-w-md mx-auto">
-                <img src="https://www.freeiconspng.com/uploads/bismillah-png-9.png" alt="Bismillah" class="w-100 mx-auto opacity-75 mb-6 filter sepia">
-                <h2 class="font-serif text-2xl text-wedding-gold-dark font-semibold">AMEERDEEN & SABARIYA BEGAM</h2>
-                <p class="text-xs text-gray-600 uppercase tracking-widest mb-4">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+      <!-- Invitation Text Section -->
+        <section id="jemputan" class="p-8 text-center bg-cover bg-center text-white relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg');">
+            <!-- Bintang Cahaya di Section Jemputan -->
+            <ul class="bg-stars">
+                <li></li><li class="star-sparkle"></li><li></li><li></li><li class="star-sparkle"></li><li></li><li></li><li></li><li class="star-sparkle"></li><li></li><li></li><li></li>
+            </ul>
+
+            <div class="max-w-md mx-auto relative z-10">
+                <img src="https://www.freeiconspng.com/uploads/bismillah-png-9.png" alt="Bismillah" class="w-64 mx-auto opacity-85 mb-6 filter invert brightness-200">
+                <h2 class="font-serif text-xl text-wedding-gold-light font-semibold">AMEERDEEN & SABARIYA BEGAM</h2>
+                <p class="text-xs text-gray-300 uppercase tracking-widest my-3">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
                 
-                <p class="text-sm text-gray-700 leading-relaxed mb-6 font-light">
+                <p class="text-sm text-gray-200 leading-relaxed mb-6 font-light">
                     Dengan penuh rasa kesyukuran ke hadrat Allah SWT, kami dengan tulus ikhlas menjemput Tuan / Puan dan sekeluarga ke majlis pertunangan anak kami yang dikasihi:
                 </p>
 
                 <!-- Couple Card -->
-                <div class="my-8 py-6 px-4 bg-white rounded-2xl shadow-sm border border-wedding-gold/20">
-                    <div class="mb-4">
-                        <h2 class="font-serif text-2xl text-wedding-gold-dark font-semibold">MUHAMMAD SAIFUL BIN AMEERDEEN</h2>
+                <div class="my-8 py-6 px-4 glass-dark rounded-2xl shadow-lg border border-wedding-gold/30">
+                    <div>
+                        <h2 class="font-serif text-xl text-wedding-gold-light font-semibold">MUHAMMAD SAIFUL BIN AMEERDEEN</h2>
                     </div>
                     
-                    <div class="my-3 font-serif text-4xl text-wedding-gold">&</div>
+                    <div class="my-3 font-serif text-3xl text-wedding-gold">&</div>
             
                     <div>
-                        <h2 class="font-serif text-2xl text-wedding-gold-dark font-semibold">NUR WAZIRAH BINTI SHAHUL HAMEED</h2>
-                        
+                        <h2 class="font-serif text-xl text-wedding-gold-light font-semibold">NUR WAZIRAH BINTI SHAHUL HAMEED</h2>
                     </div>
                 </div>
             </div>
         </section>
 
-        
         <!-- Event Details & Timeline -->
-        <section id="acara" class="p-8 bg-white">
-            <div class="text-center mb-8">
-                <span class="text-xs uppercase tracking-widest text-wedding-gold font-semibold">MAJLIS</span>
-                <h3 class="font-serif text-2xl text-wedding-dark mt-1">PERTUNANGAN</h3>
+        <section id="acara" class="p-8 text-white bg-cover bg-center relative overflow-hidden" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg');">
+            <!-- Bintang Cahaya di Section Acara -->
+            <ul class="bg-stars">
+                <li></li><li class="star-sparkle"></li><li></li><li></li><li class="star-sparkle"></li><li></li><li></li><li></li><li class="star-sparkle"></li><li></li><li></li><li></li>
+            </ul>
+
+            <div class="text-center mb-8 relative z-10">
+                <span class="text-xs uppercase tracking-widest text-wedding-gold-light font-semibold">MAJLIS</span>
+                <h3 class="font-serif text-2xl text-wedding-gold-light mt-1">PERTUNANGAN</h3>
             </div>
 
-            <div class="space-y-6 max-w-md mx-auto">
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-wedding-cream/60 border border-wedding-gold/20">
-                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-dark flex items-center justify-center shrink-0 mt-1">
+            <div class="space-y-4 max-w-md mx-auto relative z-10">
+                <div class="flex items-start gap-4 p-4 rounded-xl glass-dark border border-wedding-gold/30">
+                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-light flex items-center justify-center shrink-0 mt-1">
                         <i class="fa-solid fa-calendar text-lg"></i>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-sm text-wedding-dark">DATE</h4>
-                        <p class="text-xs text-gray-600 mt-1">AHAD, 08 NOVEMBER 2026</p>
+                        <h4 class="font-semibold text-sm text-wedding-gold-light">TARIKH</h4>
+                        <p class="text-xs text-gray-200 mt-1">AHAD, 08 NOVEMBER 2026</p>
                     </div>
                 </div>
 
-            <div class="space-y-6 max-w-md mx-auto">
-                <div class="flex items-start gap-4 p-4 rounded-xl bg-wedding-cream/60 border border-wedding-gold/20">
-                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-dark flex items-center justify-center shrink-0 mt-1">
+                <div class="flex items-start gap-4 p-4 rounded-xl glass-dark border border-wedding-gold/30">
+                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-light flex items-center justify-center shrink-0 mt-1">
                         <i class="fa-regular fa-clock text-lg"></i>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-sm text-wedding-dark">TIME</h4>
-                        <p class="text-xs text-gray-600 mt-1">12:00 PM – 3:30 PM</p>
+                        <h4 class="font-semibold text-sm text-wedding-gold-light">MASA</h4>
+                        <p class="text-xs text-gray-200 mt-1">12:00 PM – 3:30 PM</p>
                     </div>
                 </div>
 
-                <div id="lokasi" class="flex items-start gap-4 p-4 rounded-xl bg-wedding-cream/60 border border-wedding-gold/20">
-                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-dark flex items-center justify-center shrink-0 mt-1">
+                <div id="lokasi" class="flex items-start gap-4 p-4 rounded-xl glass-dark border border-wedding-gold/30">
+                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-light flex items-center justify-center shrink-0 mt-1">
                         <i class="fa-solid fa-location-dot text-lg"></i>
                     </div>
                     <div>
-                        <h4 class="font-semibold text-sm text-wedding-dark">LOCATION</h4>
-                        <p class="text-xs text-gray-700 font-medium mt-1">KOMPLEKS MASYARAKAT PENYAYANG</p>
-                        <p class="text-xs text-gray-600">JALAN UTAMA ,10450 GEORGETOWN, PENANG </p>
+                        <h4 class="font-semibold text-sm text-wedding-gold-light">LOKASI</h4>
+                        <p class="text-xs text-wedding-gold-light font-medium mt-1">KOMPLEKS MASYARAKAT PENYAYANG</p>
+                        <p class="text-xs text-gray-300">JALAN UTAMA, 10450 GEORGETOWN, PENANG</p>
                     </div>
                 </div>
             </div>
 
             <!-- Map Buttons -->
-            <div class="grid grid-cols-2 gap-3 max-w-md mx-auto mt-6">
-                <a href="https://share.google/HxF69QxYcAgcnOQxo" target="_blank" class="py-3 px-4 bg-emerald-600 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-emerald-700 transition-colors">
+            <div class="grid grid-cols-2 gap-3 max-w-md mx-auto mt-4 relative z-10">
+                <a href="https://share.google/HxF69QxYcAgcnOQxo" target="_blank" class="py-3 px-4 bg-emerald-600/90 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-emerald-700 transition-colors backdrop-blur-sm">
                     <i class="fa-solid fa-map-location-dot"></i> Google Maps
                 </a>
-                <a href="https://share.google/2xk0GeKNNA9vDousg" target="_blank" class="py-3 px-4 bg-sky-500 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-sky-600 transition-colors">
+                <a href="https://share.google/2xk0GeKNNA9vDousg" target="_blank" class="py-3 px-4 bg-sky-500/90 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-sky-600 transition-colors backdrop-blur-sm">
                     <i class="fa-brands fa-waze"></i> Waze Navigation
                 </a>
             </div>
         </section>
 
-<!-- Countdown Section -->
+        <!-- Countdown Section -->
         <section class="py-10 px-6 bg-wedding-dark text-white text-center relative overflow-hidden">
             <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
             <div class="relative z-10">
@@ -290,17 +374,13 @@
                         <span class="text-[10px] text-gray-400 uppercase tracking-wider">Saat</span>
                     </div>
                 </div>
+            </div>
         </section>
 
-
-        
-
-        <!-- Footer & Gift Section -->
+        <!-- Footer -->
         <footer class="p-8 bg-wedding-dark text-white text-center border-t border-wedding-gold/30">
-            <p class="font-semibold text-3xl text-wedding-gold-light">SAIFUL & WAZIRAH</p>
-            
-
-            <p class="text-[10px] text-gray-500 mt-8">Rekaan Kad Perkahwinan Digital Inspired by SAIFUL</p>
+            <p class="font-serif font-semibold text-2xl text-wedding-gold-light">SAIFUL & WAZIRAH</p>
+            <p class="text-[10px] text-gray-500 mt-6"> Digital Card Inspired by SAIFUL</p>
         </footer>
 
     </div>
@@ -310,8 +390,10 @@
         <img id="lightboxImg" src="" alt="Full view" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl object-contain">
     </div>
 
-   
-
+    <!-- Toast Notification -->
+    <div id="copyToast" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-50 bg-wedding-dark text-wedding-gold-light text-xs py-2 px-4 rounded-full border border-wedding-gold/40 shadow-xl opacity-0 transition-opacity duration-300 pointer-events-none">
+        Berjaya disalin!
+    </div>
 
     <script>
         // --- AUDIO PLAYER CONTROLLER ---
@@ -387,11 +469,13 @@
 
         // --- CALENDAR INTEGRATION ---
         function addToCalendar(type) {
-            const title = "Walimatul Urus Azim %26 Aishah";
-            const details = "Majlis Perkahwinan Azim %26 Aishah %23ThasealedByAzim";
-            const location = "Dewan Perdana Glasshouse, Kuala Lumpur";
-            const startDate = "20261212T030000Z"; // UTC Time
-            const endDate = "20261212T080000Z";
+            const title = encodeURIComponent("Majlis Pertunangan Saiful & Wazirah");
+            const details = encodeURIComponent("Majlis Pertunangan Saiful & Wazirah");
+            const location = encodeURIComponent("Kompleks Masyarakat Penyayang, Jalan Utama, 10450 Georgetown, Penang");
+            
+            // Event timing: Nov 8, 2026 from 12:00 PM to 3:30 PM (+8 UTC / MYT -> 04:00 to 07:30 UTC)
+            const startDate = "20261108T040000Z";
+            const endDate = "20261108T073000Z";
 
             if (type === 'google') {
                 const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
@@ -399,26 +483,23 @@
             } else if (type === 'ical') {
                 const icsData = `BEGIN:VCALENDAR
 VERSION:2.0
+PRODID:-//Digital Card//MY
 BEGIN:VEVENT
-SUMMARY:Walimatul Urus Azim & Aishah
-DESCRIPTION:Majlis Perkahwinan Azim & Aishah #ThasealedByAzim
-LOCATION:Dewan Perdana Glasshouse, Kuala Lumpur
-DTSTART:20261212T110000
-DTEND:20261212T160000
+SUMMARY:Majlis Pertunangan Saiful & Wazirah
+DESCRIPTION:Majlis Pertunangan Saiful & Wazirah
+LOCATION:Kompleks Masyarakat Penyayang, Jalan Utama, 10450 Georgetown, Penang
+DTSTART:20261108T120000
+DTEND:20261108T153000
 END:VEVENT
 END:VCALENDAR`;
                 const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8;' });
                 const link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
-                link.setAttribute('download', 'Walimatul_Urus_Azim_Aishah.ics');
+                link.setAttribute('download', 'Majlis_Pertunangan_Saiful_Wazirah.ics');
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
             }
-        }
-
-        function escapeHtml(str) {
-            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
         }
 
         // --- LIGHTBOX GALLERY ---
