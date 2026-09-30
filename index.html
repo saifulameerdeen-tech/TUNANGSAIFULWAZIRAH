@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAJLIS PERTUNANGAN | SAIFUL & WAZIRAH </title>
+
+    <!-- WhatsApp / Social Media Link Preview Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MAJLIS PERTUNANGAN | SAIFUL & WAZIRAH">
+    <meta property="og:description" content="Ahad, 08 November 2026 | Kompleks Masyarakat Penyayang. Sila klik untuk melihat kad jemputan rasmi.">
+    <meta property="og:image" content="https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wedding-gold': '#C5A059',
+                        'wedding-gold-dark': '#9A7B3E',
+                        'wedding-gold-light': '#E5C98B',
+                        'wedding-cream': '#FAF6F0',
+                        'wedding-rose': '#F4EAE1',
+                        'wedding-dark': '#2C2A29',
+                        'wedding-sage': '#8A9A86'
+                    },
+                    fontFamily: {
+                        cursive: ['Alex Brush', 'cursive'],
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Keyframe Animations & Aesthetics */
+        @keyframes pulse-slow {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.04); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes wave {
+            0%, 100% { height: 6px; }
+            50% { height: 18px; }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-slow 3s infinite ease-in-out; }
+        
+        /* Audio Visualizer Bars */
+        .bar-1 { animation: wave 1.2s ease-in-out infinite 0.1s; }
+        .bar-2 { animation: wave 1.2s ease-in-out infinite 0.3s; }
+        .bar-3 { animation: wave 1.2s ease-in-out infinite 0.2s; }
+        .bar-4 { animation: wave 1.2s ease-in-out infinite 0.4s; }
+
+        .paused .bar-1, .paused .bar-2, .paused .bar-3, .paused .bar-4 {
+            animation-play-state: paused;
+            height: 4px;
+        }
+
+        /* Glassmorphism styling */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+        }
+        .glass-dark {
+            background: rgba(44, 42, 41, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF6F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body class="bg-wedding-cream text-wedding-dark font-sans antialiased selection:bg-wedding-gold selection:text-white pb-20 md:pb-0">
+
+    <!-- Welcome Modal Cover -->
+    <div id="welcomeCover" class="fixed inset-0 z-50 flex items-center justify-center bg-wedding-dark bg-cover bg-center text-white transition-opacity duration-700" style="background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg');">    
+    <div class="text-center p-6 max-w-lg mx-auto flex flex-col items-center">
+            <p class="text-wedding-gold-light font-serif tracking-[0.3em] uppercase text-xs md:text-sm mb-3">MAJLIS PERTUNANGAN</p>
+
+<div class="relative flex flex-col items-center mt-12 mb-8 text-gray-400">
+  <span class="text-6xl font-bold tracking-widest">SAIFUL</span>
+  <span class="font-['Alex_Brush'] text-6xl text-wedding-gold-light -my-4 z-10">&amp;</span>
+  <span class="text-6xl font-bold tracking-widest">WAZIRAH</span>
+</div>
+
+<p class="font-serif text-sm tracking-widest text-gray-200 mt-1 mb-8">AHAD, 08 NOVEMBER 2026</p>
+<p class="font-serif text-3xl text-wedding-gold-light">KOMPLEKS MASYARAKAT PENYAYANG</p>
+            
+            <div class="w-16 h-[1px] bg-wedding-gold my-4"></div>
+            
+            <p class="text-xs font-light text-gray-300 max-w-xs mb-8 italic">
+                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri..."
+                <span class="block mt-1 font-semibold text-wedding-gold-light">(Surah Ar-Rum: 21)</span>
+            </p>
+
+            <button id="openInvitationBtn" onclick="openInvitation()" class="group relative px-8 py-3 overflow-hidden rounded-full border border-wedding-gold bg-wedding-gold/20 text-wedding-gold-light font-serif tracking-wider text-sm transition-all duration-300 hover:bg-wedding-gold hover:text-wedding-dark hover:shadow-lg hover:shadow-wedding-gold/30">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-envelope-open text-xs"></i> Buka Kad Jemputan
+                </span>
+            </button>
+            <p class="text-[10px] text-gray-400 mt-4"><i class="fa-solid fa-volume-high mr-1"></i> --</p>
+        </div>
+    </div>
+
+    <!-- Floating Audio Control Player -->
+    <div id="audioPlayer" class="fixed bottom-20 md:bottom-6 right-5 z-40 flex items-center gap-2 bg-wedding-dark/90 text-white p-2.5 rounded-full shadow-2xl border border-wedding-gold/40 backdrop-blur-md transition-all duration-300">
+        <button id="musicToggleBtn" onclick="toggleAudio()" class="w-10 h-10 rounded-full bg-wedding-gold flex items-center justify-center text-wedding-dark shadow-md hover:scale-105 active:scale-95 transition-transform" title="Main / Jeda Muzik">
+            <i id="musicIcon" class="fa-solid fa-music text-sm"></i>
+        </button>
+        
+        <!-- Audio Visualizer Animation -->
+        <div id="visualizer" class="flex items-center gap-1 px-2 paused">
+            <span class="w-1 bg-wedding-gold-light rounded-full bar-1"></span>
+            <span class="w-1 bg-wedding-gold-light rounded-full bar-2"></span>
+            <span class="w-1 bg-wedding-gold-light rounded-full bar-3"></span>
+            <span class="w-1 bg-wedding-gold-light rounded-full bar-4"></span>
+        </div>
+
+        <button onclick="toggleMute()" class="text-gray-300 hover:text-wedding-gold px-2 text-xs">
+            <i id="muteIcon" class="fa-solid fa-volume-high"></i>
+        </button>
+    </div>
+
+    <!-- Background Audio Element -->
+    <audio id="bgMusic" loop preload="auto">
+        <!-- Royalty-free wedding piano royalty free audio source -->
+        <source src="bg-music.mp3/nasheed song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Bottom Mobile Quick Action Bar -->
+    <div class="fixed bottom-0 left-0 right-0 z-30 bg-wedding-dark/95 border-t border-wedding-gold/30 p-2 text-white flex justify-around items-center md:hidden backdrop-blur-md">
+        <a href="#acara" class="flex flex-col items-center text-[10px] text-gray-300 hover:text-wedding-gold">
+            <i class="fa-regular fa-calendar-check text-base mb-0.5"></i>
+            <span>Acara</span>
+        </a>
+        <a href="#lokasi" class="flex flex-col items-center text-[10px] text-gray-300 hover:text-wedding-gold">
+            <i class="fa-solid fa-location-dot text-base mb-0.5"></i>
+            <span>Lokasi</span>
+        </a>
+        <a href="#rsvp" class="flex flex-col items-center text-[10px] text-wedding-gold font-semibold">
+            <i class="fa-solid fa-paper-plane text-base mb-0.5"></i>
+            <span>RSVP</span>
+        </a>
+        <a href="#ucapan" class="flex flex-col items-center text-[10px] text-gray-300 hover:text-wedding-gold">
+            <i class="fa-regular fa-comment-dots text-base mb-0.5"></i>
+            <span>Ucapan</span>
+        </a>
+        <button onclick="openGiftModal()" class="flex flex-col items-center text-[10px] text-gray-300 hover:text-wedding-gold">
+            <i class="fa-solid fa-gift text-base mb-0.5"></i>
+            <span>Hadiah</span>
+        </button>
+    </div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div class="max-w-xl mx-auto min-h-screen bg-white shadow-2xl relative border-x border-wedding-gold/20 overflow-hidden">
+
+        <!-- Hero Header -->
+        <header class="relative h-[85vh] flex items-center justify-center text-center p-6 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(44, 42, 41, 0.4), rgba(44, 42, 41, 0.7)), url('https://i.pinimg.com/originals/91/cb/c9/91cbc925f332b595a06d028b9b41df52.jpg');">
+            <div class="z-10 text-white">
+                <div class="inline-block p-1 border-t border-b border-wedding-gold/60 mb-4">
+                    <p class="text-xs font-serif tracking-[0.4em] uppercase text-wedding-gold-light">MAJLIS PERTUNANGAN</p>
+                </div>
+                <h1 class="font-serif text-6xl md:text-6xl text-wedding-gold-light mb-2 drop-shadow-md">SAIFUL</h1>
+                <h1 class="font-serif text-6xl md:text-6xl text-wedding-gold-light mb-2 drop-shadow-md">&amp;</h1>
+                <h1 class="font-serif text-6xl md:text-6xl text-wedding-gold-light mb-2 drop-shadow-md">WAZIRAH</h1>
+                <p class="text-sm font-serif tracking-widest text-gray-200 mt-2">AHAD, 08 NOVEMBER 2026</p>
+                <p class="text-sm font-serif tracking-widest text-wedding-gold-light text-gray-200 mt-2">BERTEMPAT DI</p>
+                <span class="inline-block px-3 py-1 bg-wedding-dark/60 rounded-full text-xs text-wedding-gold border border-wedding-gold/30 mt-4 tracking-wider">KOMPLEKS MASYARAKAT PENYAYANG</span>
+                
+                <div class="mt-12 animate-bounce">
+                    <a href="#jemputan" class="text-wedding-gold-light text-xl opacity-80 hover:opacity-100">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Invitation Text Section -->
+        <section id="jemputan" class="p-8 text-center bg-wedding-cream relative">
+            <div class="max-w-md mx-auto">
+                <img src="https://www.freeiconspng.com/uploads/bismillah-png-9.png" alt="Bismillah" class="w-100 mx-auto opacity-75 mb-6 filter sepia">
+                <h2 class="font-serif text-2xl text-wedding-gold-dark font-semibold">AMEERDEEN & SABARIYA BEGAM</h2>
+                <p class="text-xs text-gray-600 uppercase tracking-widest mb-4">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+                
+                <p class="text-sm text-gray-700 leading-relaxed mb-6 font-light">
+                    Dengan penuh rasa kesyukuran ke hadrat Allah SWT, kami dengan tulus ikhlas menjemput Tuan / Puan dan sekeluarga ke majlis pertunangan anak kami yang dikasihi:
+                </p>
+
+                <!-- Couple Card -->
+                <div class="my-8 py-6 px-4 bg-white rounded-2xl shadow-sm border border-wedding-gold/20">
+                    <div class="mb-4">
+                        <h2 class="font-serif text-2xl text-wedding-gold-dark font-semibold">MUHAMMAD SAIFUL BIN AMEERDEEN</h2>
+                    </div>
+                    
+                    <div class="my-3 font-serif text-4xl text-wedding-gold">&</div>
+            
+                    <div>
+                        <h2 class="font-serif text-2xl text-wedding-gold-dark font-semibold">NUR WAZIRAH BINTI SHAHUL HAMEED</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Event Details & Timeline -->
+        <section id="acara" class="p-8 bg-white">
+            <div class="text-center mb-8">
+                <span class="text-xs uppercase tracking-widest text-wedding-gold font-semibold">MAJLIS</span>
+                <h3 class="font-serif text-2xl text-wedding-dark mt-1">PERTUNANGAN</h3>
+            </div>
+
+            <div class="space-y-6 max-w-md mx-auto">
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-wedding-cream/60 border border-wedding-gold/20">
+                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-dark flex items-center justify-center shrink-0 mt-1">
+                        <i class="fa-solid fa-calendar text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm text-wedding-dark">DATE</h4>
+                        <p class="text-xs text-gray-600 mt-1">AHAD, 08 NOVEMBER 2026</p>
+                    </div>
+                </div>
+
+            <div class="space-y-6 max-w-md mx-auto">
+                <div class="flex items-start gap-4 p-4 rounded-xl bg-wedding-cream/60 border border-wedding-gold/20">
+                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-dark flex items-center justify-center shrink-0 mt-1">
+                        <i class="fa-regular fa-clock text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm text-wedding-dark">TIME</h4>
+                        <p class="text-xs text-gray-600 mt-1">12:00 PM – 3:30 PM</p>
+                    </div>
+                </div>
+
+                <div id="lokasi" class="flex items-start gap-4 p-4 rounded-xl bg-wedding-cream/60 border border-wedding-gold/20">
+                    <div class="w-10 h-10 rounded-full bg-wedding-gold/20 text-wedding-gold-dark flex items-center justify-center shrink-0 mt-1">
+                        <i class="fa-solid fa-location-dot text-lg"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm text-wedding-dark">LOCATION</h4>
+                        <p class="text-xs text-gray-700 font-medium mt-1">KOMPLEKS MASYARAKAT PENYAYANG</p>
+                        <p class="text-xs text-gray-600">JALAN UTAMA ,10450 GEORGETOWN, PENANG </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Buttons -->
+            <div class="grid grid-cols-2 gap-3 max-w-md mx-auto mt-6">
+                <a href="https://share.google/HxF69QxYcAgcnOQxo" target="_blank" class="py-3 px-4 bg-emerald-600 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-emerald-700 transition-colors">
+                    <i class="fa-solid fa-map-location-dot"></i> Google Maps
+                </a>
+                <a href="https://share.google/2xk0GeKNNA9vDousg" target="_blank" class="py-3 px-4 bg-sky-500 text-white text-xs font-semibold rounded-xl flex items-center justify-center gap-2 shadow-sm hover:bg-sky-600 transition-colors">
+                    <i class="fa-brands fa-waze"></i> Waze Navigation
+                </a>
+            </div>
+        </section>
+
+<!-- Countdown Section -->
+        <section class="py-10 px-6 bg-wedding-dark text-white text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            <div class="relative z-10">
+                <h3 class="font-serif text-xs uppercase tracking-[0.3em] text-wedding-gold mb-6">COUNTING DAYS</h3>
+                
+                <div class="grid grid-cols-4 gap-2 max-w-xs mx-auto">
+                    <div class="glass-dark p-3 rounded-xl border border-wedding-gold/30">
+                        <span id="days" class="block font-serif text-2xl md:text-3xl font-bold text-wedding-gold-light">00</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Hari</span>
+                    </div>
+                    <div class="glass-dark p-3 rounded-xl border border-wedding-gold/30">
+                        <span id="hours" class="block font-serif text-2xl md:text-3xl font-bold text-wedding-gold-light">00</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Jam</span>
+                    </div>
+                    <div class="glass-dark p-3 rounded-xl border border-wedding-gold/30">
+                        <span id="minutes" class="block font-serif text-2xl md:text-3xl font-bold text-wedding-gold-light">00</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Minit</span>
+                    </div>
+                    <div class="glass-dark p-3 rounded-xl border border-wedding-gold/30">
+                        <span id="seconds" class="block font-serif text-2xl md:text-3xl font-bold text-wedding-gold-light">00</span>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-wider">Saat</span>
+                    </div>
+                </div>
+        </section>
+
+
+        
+
+        <!-- Footer & Gift Section -->
+        <footer class="p-8 bg-wedding-dark text-white text-center border-t border-wedding-gold/30">
+            <p class="font-semibold text-3xl text-wedding-gold-light">SAIFUL & WAZIRAH</p>
+            
+
+            <p class="text-[10px] text-gray-500 mt-8">Rekaan Kad Perkahwinan Digital Inspired by SAIFUL</p>
+        </footer>
+
+    </div>
+
+    <!-- Lightbox Photo Modal -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="Full view" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl object-contain">
+    </div>
+
+   
+
+
+    <script>
+        // --- AUDIO PLAYER CONTROLLER ---
+        const audio = document.getElementById('bgMusic');
+        const visualizer = document.getElementById('visualizer');
+        const musicIcon = document.getElementById('musicIcon');
+        const muteIcon = document.getElementById('muteIcon');
+        let isPlaying = false;
+
+        function openInvitation() {
+            // Fade out cover screen
+            const cover = document.getElementById('welcomeCover');
+            cover.classList.add('opacity-0');
+            setTimeout(() => {
+                cover.style.display = 'none';
+            }, 700);
+
+            // Play background music
+            playAudio();
+        }
+
+        function playAudio() {
+            audio.play().then(() => {
+                isPlaying = true;
+                visualizer.classList.remove('paused');
+                musicIcon.className = "fa-solid fa-pause text-sm";
+            }).catch(err => {
+                console.log("Autoplay interaction blocked:", err);
+            });
+        }
+
+        function toggleAudio() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                visualizer.classList.add('paused');
+                musicIcon.className = "fa-solid fa-play text-sm";
+            } else {
+                playAudio();
+            }
+        }
+
+        function toggleMute() {
+            audio.muted = !audio.muted;
+            if (audio.muted) {
+                muteIcon.className = "fa-solid fa-volume-xmark text-xs";
+            } else {
+                muteIcon.className = "fa-solid fa-volume-high text-xs";
+            }
+        }
+
+        // --- COUNTDOWN TIMER ---
+        const targetDate = new Date("NOVEMBER 08, 2026 12:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // --- CALENDAR INTEGRATION ---
+        function addToCalendar(type) {
+            const title = "Walimatul Urus Azim %26 Aishah";
+            const details = "Majlis Perkahwinan Azim %26 Aishah %23ThasealedByAzim";
+            const location = "Dewan Perdana Glasshouse, Kuala Lumpur";
+            const startDate = "20261212T030000Z"; // UTC Time
+            const endDate = "20261212T080000Z";
+
+            if (type === 'google') {
+                const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+                window.open(googleUrl, '_blank');
+            } else if (type === 'ical') {
+                const icsData = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Walimatul Urus Azim & Aishah
+DESCRIPTION:Majlis Perkahwinan Azim & Aishah #ThasealedByAzim
+LOCATION:Dewan Perdana Glasshouse, Kuala Lumpur
+DTSTART:20261212T110000
+DTEND:20261212T160000
+END:VEVENT
+END:VCALENDAR`;
+                const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8;' });
+                const link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.setAttribute('download', 'Walimatul_Urus_Azim_Aishah.ics');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        // --- LIGHTBOX GALLERY ---
+        function openLightbox(src) {
+            const modal = document.getElementById('lightboxModal');
+            document.getElementById('lightboxImg').src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightboxModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function copyToClipboard(text) {
+            const input = document.createElement('input');
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+
+            const toast = document.getElementById('copyToast');
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
